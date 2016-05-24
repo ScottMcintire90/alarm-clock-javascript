@@ -10,6 +10,7 @@ var watch = setInterval(function(){ startWatch() }, 1000);
 
 function startWatch() {
   counter = counter + 1;
+  console.log(counter);
   $('#stopwatchValue').text(counter);
 }
 
@@ -19,6 +20,7 @@ function resetTheWatch() {
 
 $(document).ready(function() {
   setInterval(update, 1000);
+  $('#stopwatchValue').hide();
 
   $('#alarm').submit(function(event) {
     event.preventDefault();
@@ -38,14 +40,17 @@ $(document).ready(function() {
 
   $('#startWatch').submit(function(event) {
     event.preventDefault();
-    counter = 0;
-    $('#zero').hide();
+    $('#stopwatchValue').hide().text('');
+    clearInterval(watch);
+    resetTheWatch();
+    watch = setInterval(function(){ startWatch() }, 1000);
     $('#stopwatchValue').show();
   });
 
   $('#resetWatch').submit(function(event) {
-    $('#zero').show()
+    clearInterval(watch);
     counter = 0;
+    console.log(counter);
     $('#stopwatchValue').hide();
     event.preventDefault();
   });
