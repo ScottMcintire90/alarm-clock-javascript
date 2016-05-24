@@ -1,20 +1,36 @@
 var Alarm = require("./../js/alarm.js").Alarm;
 
-$(document).ready(function update() {
+var update = function() {
+  $('#currentTime').text(moment().format('LTS'));
+};
+
+$(document).ready(function() {
+  setInterval(update, 1000);
   $('#alarm').submit(function(event) {
+    event.preventDefault();
+
     var time = $('#timepicker5').val();
     var newAlarm = new Alarm(time);
-    $('#new-alarm').append(newAlarm.read());
-    console.log(newAlarm.read());
-    event.preventDefault();
+
+    setInterval(function() {
+      $('#hidden-time').text(moment().format('LT'));
+      var hidden = moment().format('LT');
+      var userAlarm = newAlarm.read();
+      if(hidden === userAlarm) {
+        console.log("success!");
+      }
+    }, 1000);
+
+    $('.hide-alarm').show();
+    $('#new-alarm').text(newAlarm.read());
   });
-  $('#currentTime').text(moment().format('LTS'));
-  setInterval(update, 1000);
+
   $('#timepicker5').timepicker({
       template: false,
       showInputs: false,
       minuteStep: 5
   });
+
 });
 
 exports.Alarm = function(time) {

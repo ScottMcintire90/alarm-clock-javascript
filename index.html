@@ -10,13 +10,15 @@
   <body>
   <h1 class="header">Alarm Clock</h1>
   <h3>Current Time: <span id="currentTime"></span></h3>
+
   <form id="alarm">
+    <span id="hidden-time"></span>
     <div class="bootstrap-timepicker">
       <input id="timepicker5" type="text" class="input-small">
       <i class="icon-time"></i>
     </div>
     <button type="submit" class="button button-primary">Set Your Alarm</button>
   </form>
-  <span id="new-alarm"></span>
+  <h3 class="hide-alarm">Your alarm was set for: <span id="new-alarm"></span></h3>
   </body>
 </html>

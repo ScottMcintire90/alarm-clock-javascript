@@ -1,3 +1,11 @@
 .header {
   text-align: center;
 }
+
+.hide-alarm {
+  display: none;
+}
+
+body {
+  margin: 30px;
+}
