@@ -9,3 +9,29 @@
 body {
   margin: 30px;
 }
+
+#alarmOff {
+  display: none;
+}
+
+#stop {
+  padding-top: 100px;
+}
+
+#startWatch {
+  margin: 10px;
+}
+#stopWatch {
+  margin: 10px;
+}
+#resetWatch {
+  margin: 10px;
+}
+
+#alarm {
+  margin: 10px;
+}
+
+#stopwatchValue {
+  display: none;
+}
